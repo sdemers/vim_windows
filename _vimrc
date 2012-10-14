@@ -97,7 +97,9 @@ endfunction
 
 function! Search(buffers, pattern)
     call setqflist([])
+    let l:currentb = expand("%:p")
     exe "silent! ".a:buffers." vimgrepadd /".a:pattern."/j %"
+    exe "silent! buffer ".l:currentb
     exe "copen 20"
 endfunction
 command! -nargs=1 GB :call Search("bufdo", <q-args>) 
