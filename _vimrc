@@ -95,15 +95,10 @@ function! ToggleMouseMode()
   endif
 endfunction
 
-function! Search(buffers, pattern)
-    call setqflist([])
-    let l:currentb = expand("%:p")
-    exe "silent! ".a:buffers." vimgrepadd /".a:pattern."/j %"
-    exe "silent! buffer ".l:currentb
-    exe "copen 20"
-endfunction
-command! -nargs=1 GB :call Search("bufdo", <q-args>) 
-command! -nargs=1 GF :call Search("", <q-args>) 
+" Search functions (see ide_style_search.vim for reference)
+nmap <F8> :GWB<CR>
+nmap <C-F8> :cn<CR>
+nmap <C-F7> :cN<CR>
 
 au BufRead *.hs command! Make :!d:\ghc\ghc-6.4.2\bin\ghci.exe %:t
 au BufRead *.py command! Make :!c:\python25\python %:t
