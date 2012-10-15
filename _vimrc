@@ -9,7 +9,7 @@ set expandtab
 set ruler
 set shiftwidth=4
 
-set lines=50 columns=160
+set lines=50 columns=140
 
 colorscheme nuvola
 
@@ -37,7 +37,7 @@ set swapfile
 set dir=C:\\Temp
 
 set backup
-set backupdir=C:\\Temp\\vim_files
+set backupdir=C:\\Temp\\vim_files,c:\\Temp
 
 " read per-file custom settings
 set modeline
