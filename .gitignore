@@ -1,3 +1,6 @@
 vim71
 vim72
+vim73
 *~
+*.old
+vimfiles/.netrwhist
