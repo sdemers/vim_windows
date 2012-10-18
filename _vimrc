@@ -67,6 +67,12 @@ nmap <Del> dd
 " disable Q (ex mode)
 map Q <nop>
 
+" macro to separate function arguments at , and realign automatically
+nmap <C-k> /,<Esc>li<CR><Esc>==:noh<CR>
+
+" show tag list for word under cursor
+nnoremap <Leader>t :ts <C-R><C-W><CR>
+
 " disable Toolbar
 set guioptions-=T
 
@@ -82,6 +88,43 @@ set clipboard=unnamed
 
 nnoremap N Nzz
 nnoremap n nzz
+
+vnoremap (      :s/( /(/g<CR>,:s/ )/)/g<CR>
+vnoremap )      :s/ )/)/g<CR>
+nnoremap (      :s/( /(/g<CR>
+nnoremap )      :s/ )/)/g<CR>
+nnoremap _      :s/\(if\\|for\\|while\\|switch\)(/\1 (/g<CR>
+nnoremap <C-S-P> :s/\([ ]*\)\([*&]\)/\2\1/<CR>
+
+cnoremap Unspace 1,$s/\((for\\|if\\|while\\|switch)\)(/\1 (/g
+
+cmap <Leader>sc s/(\(.\{-}\))\(.*\);/static_cast<\1\>(\2);
+
+cmap <C-Left> b
+cmap <C-Right> w
+
+" abbreviations
+abbr cosnt  const
+abbr fasle  false
+abbr trie   true
+abbr truie  true
+
+highlight Tab ctermbg=lightgray guibg=grey90
+au Syntax c    syn match Tab /\t/
+au Syntax cpp  syn match Tab /\t/
+
+au Syntax c    syn keyword cTodo contained TODO FIXME XXX @todo \todo
+au Syntax cpp  syn keyword cTodo contained TODO FIXME XXX @todo \todo
+
+" move to upper/lower window
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+
+" macro to separate function arguments at , and realign automatically
+nmap <C-k> /,<Esc>li<CR><Esc>==:noh<CR>
+
+" show tag list for word under cursor
+nnoremap <Leader>t :ts <C-R><C-W><CR>
 
 set mouse=a
 
@@ -102,3 +145,7 @@ nmap <C-F7> :cN<CR>
 
 au BufRead *.hs command! Make :!d:\ghc\ghc-6.4.2\bin\ghci.exe %:t
 au BufRead *.py command! Make :!c:\python25\python %:t
+
+if exists("$VIM/_vimrc.local")
+	source $VIM/_vimrc.local
+end
