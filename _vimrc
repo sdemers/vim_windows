@@ -11,6 +11,8 @@ set shiftwidth=4
 
 set lines=50 columns=140
 
+set wildmenu
+
 colorscheme nuvola
 
 " The PC is fast enough, do syntax highlight syncing from start
@@ -146,6 +148,6 @@ nmap <C-F7> :cN<CR>
 au BufRead *.hs command! Make :!d:\ghc\ghc-6.4.2\bin\ghci.exe %:t
 au BufRead *.py command! Make :!c:\python25\python %:t
 
-if exists("$VIM/_vimrc.local")
+if filereadable("$VIM/_vimrc.local")
 	source $VIM/_vimrc.local
 end
