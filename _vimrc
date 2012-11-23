@@ -49,8 +49,11 @@ set incsearch
 " Hilight searched words
 set hlsearch
 
+" Map & to highlight word under cursor
+nmap & :exec 'silent match Search /' . expand('<cword>') . '/'
+
 " Disable search highlight by hitting <CR>
-nnoremap <CR> :noh<CR>^L
+nnoremap <CR> :noh<CR>:match none<CR>
 
 " However sometimes matching case is important. Usually this is with cases involving
 " upper-case or mixed-case search strings. This command assumes that a search string
