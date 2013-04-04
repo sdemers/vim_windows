@@ -148,6 +148,9 @@ nmap <F8> :GWB<CR>
 nmap <C-F8> :cn<CR>
 nmap <C-F7> :cN<CR>
 
+" Mapping to search selected text in visual mode
+vmap / y/<C-R>"<CR>
+
 au BufRead *.hs command! Make :!d:\ghc\ghc-6.4.2\bin\ghci.exe %:t
 au BufRead *.py command! Make :!c:\python25\python %:t
 
