@@ -1,3 +1,6 @@
+set langmenu=en_US
+let $LANG = 'en_US'
+
 set guifont=Consolas:h10
 
 syntax on
